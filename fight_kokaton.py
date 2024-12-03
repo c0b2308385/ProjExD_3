@@ -154,14 +154,14 @@ class Bomb:
         self.rct.move_ip(self.vx, self.vy)
         screen.blit(self.img, self.rct)
 
+
 class Explosion:
     """
     爆弾が破壊された時の爆発エフェクトに関するクラス
     """
     def __init__(self, center):
         self.images = [
-            pg.image.load("fig/explosion1.png"),
-            pg.image.load("fig/explosion2.png")
+            pg.image.load("fig/explosion.gif")
         ]
         self.current_image = 0  # 現在表示している画像のインデックス
         self.rct = self.images[0].get_rect(center=center)
@@ -174,6 +174,8 @@ class Explosion:
             self.current_image = (self.current_image + 1) % len(self.images)  # 画像を交互に切り替え
 
 
+
+
 def main():
     pg.display.set_caption("たたかえ！こうかとん")
     screen = pg.display.set_mode((WIDTH, HEIGHT))
@@ -182,9 +184,9 @@ def main():
     bombs = [Bomb((255, 0, 0), 10) for _ in range(NUM_OF_BOMBS)]
     score = Score()
     clock = pg.time.Clock()
-    beams = []  # 複数のビームを格納するリスト
+    beams = []  # List to store multiple beam instances
     explosions = []  # 複数の爆発エフェクトを格納するリスト
-    tmr = 0
+
     while True:
         for event in pg.event.get():
             if event.type == pg.QUIT:
@@ -234,7 +236,7 @@ def main():
         score.update(screen)
         pg.display.update()
         clock.tick(50)
-
+ 
 
 if __name__ == "__main__":
     pg.init()
