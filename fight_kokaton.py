@@ -135,7 +135,7 @@ class Bomb:
         引数2 rad：爆弾円の半径
         """
         self.img = pg.Surface((2*rad, 2*rad))
-        pg.draw.circle(self.img, color, (rad, rad), rad)
+        pg.draw.circle(self.img, color, (rad, rad), rad)  # 赤い円を作る
         self.img.set_colorkey((0, 0, 0))
         self.rct = self.img.get_rect()
         self.rct.center = random.randint(0, WIDTH), random.randint(0, HEIGHT)
