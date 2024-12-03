@@ -154,6 +154,7 @@ class Bomb:
         self.rct.move_ip(self.vx, self.vy)
         screen.blit(self.img, self.rct)
 
+
 class Explosion:
     """
     爆弾が破壊された時の爆発エフェクトに関するクラス
@@ -171,6 +172,8 @@ class Explosion:
             screen.blit(self.images[self.current_image], self.rct)
             self.life -= 1  # 表示時間を1フレーム分減算
             self.current_image = (self.current_image + 1) % len(self.images)  # 画像を交互に切り替え
+
+
 
 
 def main():
@@ -233,7 +236,7 @@ def main():
         score.update(screen)
         pg.display.update()
         clock.tick(50)
-
+ 
 
 if __name__ == "__main__":
     pg.init()
